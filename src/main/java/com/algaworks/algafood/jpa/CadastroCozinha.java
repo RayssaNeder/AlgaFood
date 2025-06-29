@@ -9,6 +9,7 @@ import com.algaworks.algafood.domain.model.Cozinha;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
 @Component
 public class CadastroCozinha {
@@ -22,6 +23,11 @@ public class CadastroCozinha {
 	 List<Cozinha> listaCozinha = query.getResultList();
 	return listaCozinha;
 	
+	}
+	
+	@Transactional
+	public Cozinha insert(Cozinha cozinha) {
+		return manager.merge(cozinha);
 	}
 
 }

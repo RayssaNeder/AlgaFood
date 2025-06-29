@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
 
-public class CadastrarCozinhaMain {
+public class AtualizarCozinhaMain {
 	
 	public static void main(String[] args) {
 		
@@ -15,16 +15,18 @@ public class CadastrarCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		Cozinha cozinha = new Cozinha();
-		cozinha.setId(1L);
-		cozinha.setNome("Brasileira");
+		Cozinha cozinha1 = new Cozinha();
+		cozinha1.setNome("Francesa");
 		
-		
+		Cozinha cozinha2 = new Cozinha();
+		cozinha2.setNome("Japonesa");
 		
 		CadastroCozinha cadastroCozinha = context.getBean(CadastroCozinha.class);
-		 cozinha = cadastroCozinha.insert(cozinha);
+		 cozinha1 = cadastroCozinha.insert(cozinha1);
+		 cozinha2 = cadastroCozinha.insert(cozinha2);
 		 
-		 System.out.printf("Cozinha atualizada: %d - %s \n", cozinha.getId(), cozinha.getNome());
+		 System.out.printf("Nova cozinha criada: %d - %s \n", cozinha1.getId(), cozinha1.getNome());
+		 System.out.printf("Nova cozinha criada: %d - %s \n", cozinha2.getId(), cozinha2.getNome());
 
 		
 		

@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 public class CadastrarCozinhaMain {
 	
@@ -21,8 +22,8 @@ public class CadastrarCozinhaMain {
 		
 		
 		
-		CadastroCozinha cadastroCozinha = context.getBean(CadastroCozinha.class);
-		 cozinha = cadastroCozinha.insert(cozinha);
+		CozinhaRepository cozinhas = context.getBean(CozinhaRepository.class);
+		 cozinha = cozinhas.save(cozinha);
 		 
 		 System.out.printf("Cozinha atualizada: %d - %s \n", cozinha.getId(), cozinha.getNome());
 
